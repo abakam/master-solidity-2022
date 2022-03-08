@@ -7,6 +7,12 @@ async function main() {
     const cryptoTokens = await CryptoTokens.deploy();
     await cryptoTokens.deployed();
     console.log('CryptoTokens deployed to: ', cryptoTokens.address);
+    // Get Deposit Contract
+    const Deposit = await ethers.getContractFactory('Deposit');
+    console.log('Deploying Deposit.....');
+    const deposit = await Deposit.deploy();
+    await deposit.deployed();
+    console.log('Deposit deployed to: ', deposit.address);
 }
 
 main()
